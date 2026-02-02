@@ -1,0 +1,48 @@
+# Docker Compose for Telegram Job Bot
+# Easy deployment with docker-compose
+
+version: '3.8'
+
+services:
+  telegram-job-bot:
+    build: .
+    container_name: telegram_job_monitor
+    restart: unless-stopped
+    
+    # Environment variables (override with .env file)
+    environment:
+      - TELEGRAM_API_ID=${TELEGRAM_API_ID}
+      - TELEGRAM_API_HASH=${TELEGRAM_API_HASH}
+      - TELEGRAM_PHONE=${TELEGRAM_PHONE}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - ALERT_CHAT_ID=${ALERT_CHAT_ID}
+    
+    # Mount session files for persistence
+    volumes:
+      - ./sessions:/app/sessions
+      - ./logs:/app/logs
+    
+    # Network mode (host for better connectivity)
+    network_mode: bridge
+    
+    # Resource limits (adjust based on your needs)
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+    
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# Volumes for persistence
+volumes:
+  sessions:
+  logs:

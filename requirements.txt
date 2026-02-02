@@ -1,0 +1,25 @@
+# Telegram Job Monitoring Bot - Requirements
+# Production-ready dependencies for Python 3.8+
+
+# Core Telegram libraries
+telethon>=1.36.0          # Userbot library for monitoring groups
+python-telegram-bot>=20.7 # Bot library for sending notifications
+python-dotenv>=1.0.0      # Environment variable management
+
+# HTTP and async support
+aiohttp>=3.9.0            # Async HTTP client
+requests>=2.31.0          # Synchronous HTTP client (fallback)
+httpx>=0.26.0             # Modern async HTTP client
+
+# Cryptography (required by Telethon)
+cryptography>=42.0.0      # Encryption library
+
+# Utilities
+python-dateutil>=2.8.2    # Date/time utilities
+
+# Optional: For future NLP/AI enhancements
+# Uncomment when implementing AI-based job detection
+# transformers>=4.35.0    # Hugging Face transformers for NLP
+# torch>=2.1.0            # PyTorch for ML models
+# scikit-learn>=1.3.0     # Machine learning utilities
+# spacy>=3.7.0            # Advanced NLP

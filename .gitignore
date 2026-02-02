@@ -1,0 +1,57 @@
+# .gitignore for Telegram Job Bot
+
+# Environment variables and secrets
+.env
+*.env
+!.env.example
+
+# Telethon session files (contains authentication)
+*.session
+*.session-journal
+
+# Jobs database (may contain sensitive data)
+jobs_database.json
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
